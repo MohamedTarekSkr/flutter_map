@@ -14,7 +14,25 @@ class WidgetTree extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Flutter"),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.light_mode))],
+        actions: [
+          ValueListenableBuilder(
+            valueListenable: themeModeNotifier,
+            builder:
+                (BuildContext context, ThemeMode themeMode, Widget? child) {
+                  final bool isDarkMode = themeMode == ThemeMode.dark;
+                  return IconButton(
+                    onPressed: () {
+                      themeModeNotifier.value = isDarkMode
+                          ? ThemeMode.light
+                          : ThemeMode.dark;
+                    },
+                    icon: Icon(
+                      isDarkMode ? Icons.light_mode : Icons.dark_mode,
+                    ),
+                  );
+                },
+          ),
+        ],
         centerTitle: true,
       ),
       body: ValueListenableBuilder(
