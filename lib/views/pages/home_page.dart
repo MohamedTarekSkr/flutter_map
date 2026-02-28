@@ -1,2 +1,10 @@
+import 'package:flutter/material.dart';
 
-stat
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(child: Text("Home Page"));
+  }
+}
