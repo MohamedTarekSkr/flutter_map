@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/data/notifiers.dart';
 import 'package:flutter_map/views/pages/home_page.dart';
 import 'package:flutter_map/views/pages/profile_page.dart';
+import 'package:flutter_map/views/pages/settings_page.dart';
 import 'package:flutter_map/views/widgets/navbar_widget.dart';
 
 List<Widget> pages = [HomePage(), ProfilePage()];
@@ -26,11 +27,22 @@ class WidgetTree extends StatelessWidget {
                           ? ThemeMode.light
                           : ThemeMode.dark;
                     },
-                    icon: Icon(
-                      isDarkMode ? Icons.light_mode : Icons.dark_mode,
-                    ),
+                    icon: Icon(isDarkMode ? Icons.light_mode : Icons.dark_mode),
                   );
                 },
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return SettingsPage(title: "Settings");
+                  },
+                ),
+              );
+            },
+            icon: Icon(Icons.settings),
           ),
         ],
         centerTitle: true,

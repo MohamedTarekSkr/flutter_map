@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/data/notifiers.dart';
-import 'package:flutter_map/views/widget_tree.dart';
+import 'package:flutter_map/views/pages/Welcome_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp> {
             ),
           ),
           themeMode: themeMode,
-          home: WidgetTree(),
+          home: WelcomePage(),
         );
       },
     );
